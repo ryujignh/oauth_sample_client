@@ -22,8 +22,10 @@ app.set('views', 'files/client');
 
 // authorization server information
 
-var authorizationEndpoint = process.env.NODE_ENV === 'production' ? 'https://creww.me/oauth/authorize' : 'http://creww.test:53000/oauth/authorize';
-var tokenEndpoint = process.env.NODE_ENV === 'production' ? 'https://creww.me/oauth/token' : 'http://creww.test:53000/oauth/token';
+var production = process.env.NODE_ENV === 'production';
+
+var authorizationEndpoint = production ? 'https://creww.me/oauth/authorize' : 'http://creww.test:53000/oauth/authorize';
+var tokenEndpoint = production ? 'https://creww.me/oauth/token' : 'http://creww.test:53000/oauth/token';
 var authServer = {
 	authorizationEndpoint: authorizationEndpoint,
 	tokenEndpoint: tokenEndpoint,
